@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1d4355;
+  --color-accent: #f08a4b;
+  --color-teal: #a5c4c4;
+  --color-canvas: #f4f7f7;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-canvas font-sans text-primary antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html[lang='ar'] body {
+  @apply font-ar;
+}
+
+/* Numbers, prices, +212 phones and #tickets always read left-to-right. */
+.ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+@layer components {
+  .card {
+    @apply rounded-card border border-hair bg-white shadow-card;
+  }
+  .press {
+    @apply transition-transform duration-100 active:scale-[0.98];
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold;
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*                        Signature animations                         */
+/* ------------------------------------------------------------------ */
+
+@keyframes spin-cw {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-gear-slow {
+  animation: spin-cw 4s linear infinite;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+.animate-gear {
+  animation: spin-cw 2s linear infinite;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+/* Spring-like 0.5 → 1 (damping 12 / stiffness 100 feel) */
+@keyframes logo-spring {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  45% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.97);
+  }
+  85% {
+    transform: scale(1.015);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-logo-spring {
+  animation: logo-spring 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.animate-draw {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: draw 600ms ease-out 450ms forwards;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.animate-float {
+  animation: float-y 1.5s ease-in-out infinite;
+}
+
+@keyframes radar-wave {
+  from {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+.radar-wave {
+  animation: radar-wave 2s ease-out infinite;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes counter-orbit {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.animate-orbit {
+  animation: orbit 14s linear infinite;
+}
+.animate-counter-orbit {
+  animation: counter-orbit 14s linear infinite;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  55% {
+    transform: scale(1.15);
+  }
+  75% {
+    transform: scale(0.94);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animate-pop {
+  animation: pop 650ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes burst {
+  0% {
+    transform: translate(0, 0) scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  40% {
+    transform: translate(calc(var(--dx) * 0.7), calc(var(--dy) * 0.7)) scale(1.1) rotate(60deg);
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(0.6) rotate(120deg);
+    opacity: 0;
+  }
+}
+.particle {
+  animation: burst 800ms ease-out 180ms both;
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(32px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-sheet {
+  animation: sheet-up 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fade {
+  animation: fade-in 200ms ease-out both;
+}
+
+@keyframes ping-dot {
+  75%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.animate-ping-dot {
+  animation: ping-dot 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ticket-in {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-ticket {
+  animation: ticket-in 380ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  /* Static radar: keep the three rings visible instead of ending fully faded. */
+  .radar-wave {
+    animation: none !important;
+  }
+  .radar-wave:nth-child(1) {
+    transform: scale(2.3);
+    opacity: 0.18;
+  }
+  .radar-wave:nth-child(2) {
+    transform: scale(1.7);
+    opacity: 0.32;
+  }
+  .radar-wave:nth-child(3) {
+    transform: scale(1.15);
+    opacity: 0.5;
+  }
+}
