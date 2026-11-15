@@ -1,0 +1,68 @@
+{
+  "expo": {
+    "name": "AlloPro",
+    "slug": "allopro",
+    "scheme": "allopro",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "backgroundColor": "#F4F7F7",
+    "primaryColor": "#1D4355",
+    "splash": {
+      "backgroundColor": "#F4F7F7",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "bundleIdentifier": "ma.allopro.app",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "AlloPro utilise votre position pour afficher les pros les plus proches et guider l'artisan jusqu'à vous.",
+        "NSCameraUsageDescription": "AlloPro utilise l'appareil photo pour joindre une photo du problème à votre demande.",
+        "NSPhotoLibraryUsageDescription": "AlloPro accède à vos photos pour joindre une image du problème ou de votre boutique."
+      }
+    },
+    "android": {
+      "package": "ma.allopro.app",
+      "softwareKeyboardLayoutMode": "resize",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "VIBRATE",
+        "POST_NOTIFICATIONS"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-localization",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "AlloPro utilise votre position pour afficher les pros les plus proches et guider l'artisan jusqu'à vous."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "AlloPro accède à vos photos pour joindre une image du problème ou de votre boutique.",
+          "cameraPermission": "AlloPro utilise l'appareil photo pour joindre une photo du problème à votre demande."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#F08A4B"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false,
+      "tsconfigPaths": true
+    },
+    "extra": {
+      "supportsRTL": true
+    }
+  }
+}
