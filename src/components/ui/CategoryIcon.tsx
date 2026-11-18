@@ -4,7 +4,7 @@
  * to a lucide-react-native icon on a soft tinted square.
  */
 import { View, type StyleProp, type ViewStyle } from 'react-native';
-import { Car, Scissors, Stethoscope, Store, Trophy, Wrench, type LucideIcon } from 'lucide-react-native';
+import { Car, Home, Scissors, Stethoscope, Store, Trophy, Wrench, type LucideIcon } from 'lucide-react-native';
 
 import { categoryVisuals, colors, type CategorySlug } from '../../constants/theme';
 
@@ -14,6 +14,7 @@ const ICONS: Record<string, LucideIcon> = {
   Wrench,
   Car,
   Trophy,
+  Home,
 };
 
 export const getCategoryIcon = (name: string | null | undefined): LucideIcon =>

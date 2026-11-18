@@ -256,18 +256,19 @@ export const motion = {
 /*                         ENGINE & CATEGORY VISUALS                          */
 /* -------------------------------------------------------------------------- */
 
-export type CategorySlug = 'coiffure' | 'sante' | 'bricolage' | 'auto' | 'sport';
+export type CategorySlug = 'coiffure' | 'sante' | 'bricolage' | 'auto' | 'sport' | 'services';
 
 /** Matches categories.icon values seeded in Supabase (lucide-react-native names). */
 export const categoryVisuals: Record<
   CategorySlug,
-  { icon: 'Scissors' | 'Stethoscope' | 'Wrench' | 'Car' | 'Trophy'; tint: string; engine: BookingEngine }
+  { icon: 'Scissors' | 'Stethoscope' | 'Wrench' | 'Car' | 'Trophy' | 'Home'; tint: string; engine: BookingEngine }
 > = {
   coiffure: { icon: 'Scissors', tint: colors.accent.soft, engine: 'queue' },
   sante: { icon: 'Stethoscope', tint: colors.secondary.tealLight, engine: 'appointment' },
   bricolage: { icon: 'Wrench', tint: colors.accent.soft, engine: 'ondemand' },
   auto: { icon: 'Car', tint: colors.primary.soft, engine: 'queue' },
   sport: { icon: 'Trophy', tint: colors.secondary.tealLight, engine: 'appointment' },
+  services: { icon: 'Home', tint: colors.primary.soft, engine: 'appointment' },
 };
 
 /* -------------------------------------------------------------------------- */

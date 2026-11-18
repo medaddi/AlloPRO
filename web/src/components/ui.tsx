@@ -8,6 +8,7 @@ import {
   Car,
   ChevronRight,
   Clock,
+  Home,
   MapPin,
   MessageCircle,
   Scissors,
@@ -32,6 +33,7 @@ export const CATEGORY_ICONS: Record<CategorySlug, LucideIcon> = {
   bricolage: Wrench,
   auto: Car,
   sport: Trophy,
+  services: Home,
 };
 
 /* --------------------------------- Button -------------------------------- */

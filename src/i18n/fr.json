@@ -381,6 +381,8 @@
     "nameRequired": "Entrez le nom de votre boutique.",
     "categoryRequired": "Choisissez votre métier.",
     "create": "Créer ma boutique",
-    "trial": "90 jours d’essai gratuit, sans engagement"
+    "trial": "90 jours d’essai gratuit, sans engagement",
+    "job": "Votre spécialité",
+    "jobRequired": "Choisissez votre spécialité."
   }
 }

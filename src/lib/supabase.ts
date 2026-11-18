@@ -37,10 +37,24 @@ export type CategoryRow = {
   sort_order: number;
 };
 
+/** A precise trade (métier) inside a category — seeded in supabase/categories_seed.sql. */
+export type CategoryJobRow = {
+  id: string;
+  category_id: string;
+  slug: string;
+  name_fr: string;
+  name_ar: string;
+  sort_order: number;
+};
+
+export type CategoryWithJobs = CategoryRow & { jobs: CategoryJobRow[] };
+
 export type ProProfileRow = {
   id: string;
   user_id: string;
   category_id: string | null;
+  /** Exact trade inside the category (category_jobs.id). */
+  job_id: string | null;
   business_name: string;
   description_fr: string | null;
   description_ar: string | null;
@@ -132,6 +146,7 @@ export type Database = {
     Tables: {
       users: Table<UserRow, 'id' | 'phone' | 'full_name'>;
       categories: Table<CategoryRow, 'slug' | 'name_fr' | 'name_ar' | 'icon' | 'booking_type'>;
+      category_jobs: Table<CategoryJobRow, 'category_id' | 'slug' | 'name_fr' | 'name_ar'>;
       pro_profiles: Table<ProProfileRow, 'business_name' | 'latitude' | 'longitude'>;
       services: Table<ServiceRow, 'pro_id' | 'title_fr' | 'title_ar' | 'price_mad'>;
       bookings: Table<BookingRow, 'pro_id' | 'booking_type'>;
@@ -542,11 +557,11 @@ export function useServices(proId: string | null | undefined, options: { onlyAct
   return { services, setServices, loading, error, refresh };
 }
 
-let categoriesCache: CategoryRow[] | null = null;
+let categoriesCache: CategoryWithJobs[] | null = null;
 
-/** The 5 seeded categories (cached for the app session). */
+/** The 6 seeded categories with their target jobs, sorted (cached for the app session). */
 export function useCategories() {
-  const [categories, setCategories] = useState<CategoryRow[]>(categoriesCache ?? []);
+  const [categories, setCategories] = useState<CategoryWithJobs[]>(categoriesCache ?? []);
   const [loading, setLoading] = useState(!categoriesCache);
   const [error, setError] = useState<AlloProDataError | null>(null);
 
@@ -555,13 +570,16 @@ export function useCategories() {
     let active = true;
     supabase
       .from('categories')
-      .select('*')
+      .select('*, jobs:category_jobs(*)')
       .order('sort_order', { ascending: true })
       .then(({ data, error: err }) => {
         if (!active) return;
         if (err) setError(new AlloProDataError(err));
         else {
-          categoriesCache = data ?? [];
+          categoriesCache = ((data ?? []) as unknown as CategoryWithJobs[]).map((c) => ({
+            ...c,
+            jobs: [...(c.jobs ?? [])].sort((a, b) => a.sort_order - b.sort_order),
+          }));
           setCategories(categoriesCache);
         }
         setLoading(false);

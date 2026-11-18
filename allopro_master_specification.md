@@ -113,7 +113,7 @@ A single installation serves both customers and professionals:
    - Top Bar: Moroccan City & Neighborhood selector (`Casablanca - Maârif ▾`) + Language Pill (`FR | ع`).
    - Sticky Search Input: *"Chercher un coiffeur, plombier, dentiste..."*.
    - **Live Active Ticket Widget (Conditional):** If the user holds an active queue ticket or SOS booking, a floating dark-blue card (`#1D4355`) stays pinned at the top showing real-time progress: *"Votre tour : #14 • En cours : #12 (~20 min)"*.
-   - Horizontal Category Bar: 5 vector category cards.
+   - Horizontal Category Bar: 6 vector category cards (each with its target jobs / métiers).
    - "Pros Ouverts Près de Vous": List of open professionals sorted by proximity and rating.
 
 2. **Morocco Interactive Map (`map.tsx`):**
@@ -330,13 +330,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- 11. SEED INITIAL MOROCCAN CATEGORIES
-INSERT INTO public.categories (slug, name_fr, name_ar, icon, booking_type, sort_order) VALUES
-('coiffure', 'Coiffure & Beauté', 'حلاقة وتجميل', 'Scissors', 'queue', 1),
-('sante', 'Médecins & Dentistes', 'أطباء وعيادات', 'Stethoscope', 'appointment', 2),
-('bricolage', 'Plombier & Dépannage', 'بلومبي وإصلاحات', 'Wrench', 'ondemand', 3),
-('auto', 'Lavage & Mécanique', 'غسيل وميكانيك السيارات', 'Car', 'queue', 4),
-('sport', 'Terrains & Salles', 'ملاعب وقاعات الرياضة', 'Trophy', 'appointment', 5);
+-- 11. SEED CATEGORIES & TARGET JOBS
+-- 6 categories (coiffure, sante, bricolage, auto, sport, services) + 21 métiers
+-- in public.category_jobs; pro_profiles.job_id points to the pro's exact trade.
+-- Full idempotent seed: supabase/categories_seed.sql
 
 -- 12. ENABLE SUPABASE REALTIME
 ALTER PUBLICATION supabase_realtime ADD TABLE public.pro_profiles;

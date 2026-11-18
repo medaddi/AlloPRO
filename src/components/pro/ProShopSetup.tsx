@@ -20,7 +20,7 @@ import CategoryIcon from '../ui/CategoryIcon';
 import PrimaryButton, { triggerHaptic } from '../ui/PrimaryButton';
 import TextField from '../ui/TextField';
 
-type Errors = Partial<Record<'name' | 'category' | 'location' | 'form', string>>;
+type Errors = Partial<Record<'name' | 'category' | 'job' | 'location' | 'form', string>>;
 
 export default function ProShopSetup() {
   const router = useRouter();
@@ -37,6 +37,8 @@ export default function ProShopSetup() {
 
   const [name, setName] = useState('');
   const [categoryId, setCategoryId] = useState<string | null>(null);
+  const [jobId, setJobId] = useState<string | null>(null);
+  const jobs = categories.find((c) => c.id === categoryId)?.jobs ?? [];
   const [neighborhoodSlug, setNeighborhoodSlug] = useState(city.neighborhoods[0]?.slug ?? null);
   const [address, setAddress] = useState('');
   const [coords, setCoords] = useState<{ latitude: number; longitude: number } | null>(null);
@@ -74,6 +76,7 @@ export default function ProShopSetup() {
     const next: Errors = {};
     if (name.trim().length < 2) next.name = t('proSetup.nameRequired');
     if (!categoryId) next.category = t('proSetup.categoryRequired');
+    else if (jobs.length && !jobId) next.job = t('proSetup.jobRequired');
     if (!coords) next.location = t('proSetup.locationRequired');
     setErrors(next);
     if (Object.keys(next).length || !user || !coords || !categoryId) {
@@ -89,6 +92,7 @@ export default function ProShopSetup() {
         .insert({
           user_id: user.id,
           category_id: categoryId,
+          job_id: jobId,
           business_name: name.trim().replace(/\s+/g, ' '),
           city: city.name_fr,
           neighborhood: neighborhood?.name_fr ?? null,
@@ -155,7 +159,7 @@ export default function ProShopSetup() {
         <Text style={[styles.label, { fontFamily: fontSemi }]}>{t('proSetup.category')}</Text>
         <View style={styles.categoryGrid}>
           {categoriesLoading && !categories.length
-            ? [0, 1, 2, 3, 4].map((i) => <View key={i} style={[styles.categoryCard, styles.skeleton]} />)
+            ? [0, 1, 2, 3, 4, 5].map((i) => <View key={i} style={[styles.categoryCard, styles.skeleton]} />)
             : categories.map((cat) => {
                 const active = cat.id === categoryId;
                 return (
@@ -163,8 +167,9 @@ export default function ProShopSetup() {
                     key={cat.id}
                     onPress={() => {
                       triggerHaptic('light');
+                      if (cat.id !== categoryId) setJobId(null);
                       setCategoryId(cat.id);
-                      setErrors((e) => ({ ...e, category: undefined }));
+                      setErrors((e) => ({ ...e, category: undefined, job: undefined }));
                     }}
                     accessibilityRole="radio"
                     accessibilityState={{ checked: active }}
@@ -187,6 +192,35 @@ export default function ProShopSetup() {
               })}
         </View>
         {!!errors.category && <Text style={[styles.error, { fontFamily: fontMedium }]}>{errors.category}</Text>}
+
+        {jobs.length > 0 && (
+          <>
+            <Text style={[styles.label, { fontFamily: fontSemi, marginTop: 18 }]}>{t('proSetup.job')}</Text>
+            <View style={styles.jobsWrap}>
+              {jobs.map((job) => {
+                const active = job.id === jobId;
+                return (
+                  <Pressable
+                    key={job.id}
+                    onPress={() => {
+                      triggerHaptic('light');
+                      setJobId(job.id);
+                      setErrors((e) => ({ ...e, job: undefined }));
+                    }}
+                    accessibilityRole="radio"
+                    accessibilityState={{ checked: active }}
+                    style={[styles.chip, styles.jobChip, active && styles.chipActive]}
+                  >
+                    <Text style={[styles.chipText, { fontFamily: fontSemi }, active && { color: colors.text.inverse }]}>
+                      {lang === 'ar' ? job.name_ar : job.name_fr}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+            {!!errors.job && <Text style={[styles.error, { fontFamily: fontMedium }]}>{errors.job}</Text>}
+          </>
+        )}
 
         <Text style={[styles.label, { fontFamily: fontSemi, marginTop: 18 }]}>
           {t('proSetup.neighborhood')} • {lang === 'ar' ? city.name_ar : city.name_fr}
@@ -348,6 +382,16 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accent.DEFAULT,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  jobsWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  jobChip: {
+    height: undefined,
+    minHeight: 38,
+    paddingVertical: 8,
   },
   chipsRow: {
     gap: 8,

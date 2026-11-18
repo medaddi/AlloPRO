@@ -7,16 +7,64 @@
 export type Lang = 'fr' | 'ar';
 export type Engine = 'queue' | 'appointment' | 'ondemand';
 export type BookingStatus = 'pending' | 'confirmed' | 'in_progress' | 'completed' | 'cancelled';
-export type CategorySlug = 'coiffure' | 'sante' | 'bricolage' | 'auto' | 'sport';
+export type CategorySlug = 'coiffure' | 'sante' | 'bricolage' | 'auto' | 'sport' | 'services';
 
-export type Category = { slug: CategorySlug; engine: Engine; name_fr: string; name_ar: string };
+export type CategoryJob = { slug: string; name_fr: string; name_ar: string };
+export type Category = { slug: CategorySlug; engine: Engine; name_fr: string; name_ar: string; jobs: CategoryJob[] };
 
+/** Mirrors supabase/categories_seed.sql (categories + category_jobs). */
 export const CATEGORIES: Category[] = [
-  { slug: 'coiffure', engine: 'queue', name_fr: 'Coiffure & Beauté', name_ar: 'حلاقة وتجميل' },
-  { slug: 'sante', engine: 'appointment', name_fr: 'Médecins & Dentistes', name_ar: 'أطباء وعيادات' },
-  { slug: 'bricolage', engine: 'ondemand', name_fr: 'Plombier & Dépannage SOS', name_ar: 'بلومبي وإصلاحات' },
-  { slug: 'auto', engine: 'queue', name_fr: 'Lavage & Auto', name_ar: 'غسيل وميكانيك' },
-  { slug: 'sport', engine: 'appointment', name_fr: 'Terrains & Sport', name_ar: 'ملاعب ورياضة' },
+  {
+    slug: 'coiffure', engine: 'queue', name_fr: 'Coiffure & Beauté', name_ar: 'حلاقة وتجميل',
+    jobs: [
+      { slug: 'barber', name_fr: 'Coiffeur Homme / Barber', name_ar: 'حلاق رجال' },
+      { slug: 'coiffeuse', name_fr: 'Coiffeuse & Esthéticienne', name_ar: 'حلاقة وتجميل النساء' },
+    ],
+  },
+  {
+    slug: 'sante', engine: 'appointment', name_fr: 'Médecins & Dentistes', name_ar: 'أطباء وعيادات',
+    jobs: [
+      { slug: 'dentiste', name_fr: 'Dentiste', name_ar: 'طبيب الأسنان' },
+      { slug: 'generaliste', name_fr: 'Médecin Généraliste', name_ar: 'طبيب العام' },
+      { slug: 'kine', name_fr: 'Kinésithérapeute', name_ar: 'مروض طبي' },
+      { slug: 'infirmier', name_fr: 'Infirmier à domicile', name_ar: 'ممرض مستقل (للديار)' },
+    ],
+  },
+  {
+    slug: 'bricolage', engine: 'ondemand', name_fr: 'Plombier & Dépannage SOS', name_ar: 'بلومبي وإصلاحات منزلية',
+    jobs: [
+      { slug: 'plombier', name_fr: 'Plombier', name_ar: 'رصاص (بلومبي)' },
+      { slug: 'electricien', name_fr: 'Électricien', name_ar: 'كهربائي (تريسيان)' },
+      { slug: 'clim-frigo', name_fr: 'Technicien Clim & Frigo', name_ar: 'تقني التبريد والمكيفات' },
+      { slug: 'electromenager', name_fr: 'Réparateur Électroménager', name_ar: 'مصلح الآلات المنزلية' },
+      { slug: 'parabole-cameras', name_fr: 'Parabole & Caméras', name_ar: 'تقني البارابول والكاميرات' },
+      { slug: 'serrurier', name_fr: 'Serrurier', name_ar: 'مصلح الأقفال والسوارت' },
+      { slug: 'peintre-platrier', name_fr: 'Peintre & Plâtrier', name_ar: 'صباغ وجباس' },
+      { slug: 'menuisier', name_fr: 'Menuisier Alum/Bois', name_ar: 'نجار الألومنيوم والخشب' },
+    ],
+  },
+  {
+    slug: 'auto', engine: 'queue', name_fr: 'Lavage & Mécanique Auto', name_ar: 'غسيل وميكانيك السيارات',
+    jobs: [
+      { slug: 'lavage-auto', name_fr: 'Lavage Auto (Centre / Domicile)', name_ar: 'غسيل السيارات (محطة أو بالدار)' },
+      { slug: 'mecanicien', name_fr: 'Mécanicien & Diagnostic', name_ar: 'ميكانيكي وفحص بالـ Scanner' },
+      { slug: 'electricien-auto', name_fr: 'Électricien Auto', name_ar: 'كهربائي السيارات' },
+    ],
+  },
+  {
+    slug: 'sport', engine: 'appointment', name_fr: 'Terrains & Coaching Sportif', name_ar: 'ملاعب وكوتشينغ رياضي',
+    jobs: [
+      { slug: 'terrain', name_fr: 'Terrain Mini-Foot / Padel', name_ar: 'ملاعب القرب (ميني فوت / بادل)' },
+      { slug: 'coach', name_fr: 'Personal Trainer / Coach', name_ar: 'مدرب رياضي شخصي' },
+    ],
+  },
+  {
+    slug: 'services', engine: 'appointment', name_fr: 'Services Quotidiens', name_ar: 'خدمات يومية متنوعة',
+    jobs: [
+      { slug: 'menage', name_fr: 'Femme de ménage', name_ar: 'عاملة النظافة (بالساعة/بالنهار)' },
+      { slug: 'transport', name_fr: 'Transport & Déménagement (Honda)', name_ar: 'ناقل البضائع والرحيل (هوندا/تريبورتور)' },
+    ],
+  },
 ];
 
 export const categoryOf = (slug: CategorySlug) => CATEGORIES.find((c) => c.slug === slug) as Category;
