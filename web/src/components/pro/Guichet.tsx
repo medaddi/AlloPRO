@@ -83,7 +83,7 @@ export default function Guichet({ pro }: { pro: Pro }) {
                   <span key={b.id} className="inline-flex items-center gap-1.5 rounded-full border border-hair bg-canvas px-2.5 py-1 text-xs">
                     <span className="ltr font-bold text-accent-dark">#{b.ticket}</span>
                     <span className="font-medium">{b.walkin ? t('pro.walkinDefault') : b.clientName}</span>
-                    {b.mine && <span className="rounded-full bg-accent px-1.5 text-[10px] font-bold text-white">AlloPro</span>}
+                    {b.mine && <span className="rounded-full bg-accent px-1.5 text-[10px] font-bold text-white">ALLO LM3LM</span>}
                   </span>
                 ))}
               </div>
@@ -140,8 +140,8 @@ function RequestCard({ booking, pro }: { booking: Booking; pro: Pro }) {
   const tone = booking.status === 'pending' ? 'wait' : booking.status === 'confirmed' ? 'open' : 'accent';
   const confirmMsg =
     lang === 'ar'
-      ? `السلام عليكم ${booking.clientName} 👋\n${pro.name} أكد الطلب ديالك ✅${when ? `\nالموعد: ${dayLabel(when, 'ar')} ${ltr(formatTime(when))}` : ''}\nشكرا على الثقة — AlloPro`
-      : `Bonjour ${booking.clientName} 👋\n${pro.name} a confirmé votre demande ✅${when ? `\nRDV : ${dayLabel(when, 'fr')} à ${formatTime(when)}` : ''}\nMerci pour votre confiance — AlloPro`;
+      ? `السلام عليكم ${booking.clientName} 👋\n${pro.name} أكد الطلب ديالك ✅${when ? `\nالموعد: ${dayLabel(when, 'ar')} ${ltr(formatTime(when))}` : ''}\nشكرا على الثقة — ALLO LM3LM`
+      : `Bonjour ${booking.clientName} 👋\n${pro.name} a confirmé votre demande ✅${when ? `\nRDV : ${dayLabel(when, 'fr')} à ${formatTime(when)}` : ''}\nMerci pour votre confiance — ALLO LM3LM`;
 
   const act = (status: Booking['status']) => {
     haptic(status === 'cancelled' ? 30 : 15);
@@ -158,7 +158,7 @@ function RequestCard({ booking, pro }: { booking: Booking; pro: Pro }) {
           <div className="flex items-center gap-2">
             <span className="ltr font-bold text-accent-dark">{when ? formatTime(when) : 'SOS'}</span>
             <span className="truncate font-bold">{booking.clientName}</span>
-            {booking.mine && <span className="rounded-full bg-accent px-1.5 text-[10px] font-bold text-white">AlloPro</span>}
+            {booking.mine && <span className="rounded-full bg-accent px-1.5 text-[10px] font-bold text-white">ALLO LM3LM</span>}
           </div>
           <p className="text-[13px] text-muted">
             {service ? (lang === 'ar' ? service.title_ar : service.title_fr) : ''} • <span className="ltr">{formatMAD(booking.price)}</span>

@@ -1,5 +1,5 @@
 /**
- * AlloPro — Success pop-up (queue ticket taken / booking confirmed).
+ * ALLO LM3LM — Success pop-up (queue ticket taken / booking confirmed).
  * - Pin with checkmark pops 0 → 1.15 → settles at 1.0 (elastic spring)
  * - 10 star & dot particles (#F08A4B / #A5C4C4) burst radially and fade over 800ms
  * - Success haptic on open; CTA sits in the thumb zone (bottom sheet layout)

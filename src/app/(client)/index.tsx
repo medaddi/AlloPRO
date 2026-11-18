@@ -1,5 +1,5 @@
 /**
- * AlloPro — Client Home & Discovery.
+ * ALLO LM3LM — Client Home & Discovery.
  * City/neighborhood selector + FR|ع, fixed search, live ticket banner(s),
  * category bar and "Pros ouverts près de vous".
  */

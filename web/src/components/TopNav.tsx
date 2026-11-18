@@ -1,5 +1,5 @@
 /**
- * AlloPro web — TopNavShell: logo (rotating gear), Moroccan city pill,
+ * ALLO LM3LM web — TopNavShell: logo (rotating gear), Moroccan city pill,
  * Mode Client ⇄ Mode Pro switcher, FR | ع toggle, Animations, reset.
  */
 import { useEffect, useRef, useState } from 'react';
@@ -28,10 +28,10 @@ export default function TopNav() {
   return (
     <header className="sticky top-0 z-30 border-b border-hair bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-x-3 gap-y-2 px-4 py-2.5 sm:h-16 sm:flex-nowrap sm:py-0 lg:h-[72px] lg:px-8">
-        <button onClick={() => setView('app')} className="flex shrink-0 items-center gap-2" aria-label="AlloPro">
+        <button onClick={() => setView('app')} className="flex shrink-0 items-center gap-2" aria-label="ALLO LM3LM">
           <GearIcon className="h-7 w-7" spin />
           <span className="ltr hidden text-xl font-bold min-[420px]:inline">
-            Allo<span className="text-accent">Pro</span>
+            ALLO <span className="text-accent">LM3LM</span>
           </span>
         </button>
 

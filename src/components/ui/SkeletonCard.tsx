@@ -1,5 +1,5 @@
 /**
- * AlloPro — Placeholder card with a soft pulse, same footprint as ProCard.
+ * ALLO LM3LM — Placeholder card with a soft pulse, same footprint as ProCard.
  */
 import { useEffect } from 'react';
 import { StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';

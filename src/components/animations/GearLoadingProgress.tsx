@@ -1,5 +1,5 @@
 /**
- * AlloPro — Gear loading & progress bar (replaces generic spinners).
+ * ALLO LM3LM — Gear loading & progress bar (replaces generic spinners).
  * - Orange gear rotates 360° every 2000ms (linear)
  * - 8px rounded bar: teal track, orange fill, width animated with a cubic-bezier ease-out
  *

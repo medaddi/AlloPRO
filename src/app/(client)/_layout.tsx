@@ -1,5 +1,5 @@
 /**
- * AlloPro — Client Mode tab bar (Accueil, Carte, Réservations, Profil).
+ * ALLO LM3LM — Client Mode tab bar (Accueil, Carte, Réservations, Profil).
  * The pro profile route lives in this group but is hidden from the tab bar.
  */
 import { Tabs } from 'expo-router';

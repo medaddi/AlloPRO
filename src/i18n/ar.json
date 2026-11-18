@@ -43,7 +43,7 @@
     "tagline": "شد نوبتك بلا ما تسنى"
   },
   "welcome": {
-    "title": "مرحبا بيك فـ AlloPro",
+    "title": "مرحبا بيك فـ ALLO LM3LM",
     "subtitle": "حلاق، لافاج، طبيب ولا بلومبي: احجز بلا ما تسنى، فكل المغرب.",
     "chooseLanguage": "ختار اللغة ديالك",
     "chooseRole": "نتا…",
@@ -70,7 +70,7 @@
     "fullName": "الإسم الكامل",
     "fullNamePlaceholder": "مثلا: يوسف العمراني",
     "finish": "يلاه نبداو",
-    "terms": "إلا كملتي، راك موافق على شروط الاستعمال ديال AlloPro."
+    "terms": "إلا كملتي، راك موافق على شروط الاستعمال ديال ALLO LM3LM."
   },
   "tabs": {
     "home": "الرئيسية",
@@ -234,12 +234,12 @@
     "city": "المدينة",
     "switchToPro": "التبديل لوضع المهني",
     "switchToClient": "التبديل لوضع الزبون",
-    "becomePro": "ولي مهني فـ AlloPro",
+    "becomePro": "ولي مهني فـ ALLO LM3LM",
     "logout": "خروج",
     "logoutConfirm": "واش بصح باغي تخرج؟",
     "help": "المساعدة والتواصل",
     "version": "النسخة {{version}}",
-    "helpMessage": "السلام AlloPro، محتاج شي مساعدة فالتطبيق."
+    "helpMessage": "السلام ALLO LM3LM، محتاج شي مساعدة فالتطبيق."
   },
   "guichet": {
     "title": "الكيشي ديالي",
@@ -276,7 +276,7 @@
     "lastIssued": "آخر نوبة: {{ticket}}",
     "openFirst": "حل المحل باش يجيوك الزبناء.",
     "upNext": "الزبناء الجايين",
-    "appClient": "زبون AlloPro",
+    "appClient": "زبون ALLO LM3LM",
     "anyService": "بلا خدمة محددة",
     "start": "بدا",
     "statusUpdated": "الحالة تبدلات"
@@ -363,8 +363,8 @@
     "daysLeft_many": "باقي {{count}} يوم",
     "daysLeft_other": "باقي {{count}} يوم",
     "renewHint": "الخلاص بالتحويل: CIH، التجاري، بريد بنك ولا كاش بلوس.",
-    "contactSupport": "تواصل مع AlloPro",
-    "renewMessage": "السلام AlloPro، بغيت نجدد الاشتراك ديال المحل « {{name}} ».",
+    "contactSupport": "تواصل مع ALLO LM3LM",
+    "renewMessage": "السلام ALLO LM3LM، بغيت نجدد الاشتراك ديال المحل « {{name}} ».",
     "account": "الحساب"
   },
   "radar": {
@@ -406,7 +406,7 @@
   },
   "proSetup": {
     "title": "دير المحل ديالك",
-    "subtitle": "شوية د المعلومات والزبناء غادي يلقاوك فـ AlloPro.",
+    "subtitle": "شوية د المعلومات والزبناء غادي يلقاوك فـ ALLO LM3LM.",
     "category": "الحرفة ديالك",
     "neighborhood": "الحي",
     "addressPlaceholder": "مثلا: 12 زنقة ابن بطوطة",

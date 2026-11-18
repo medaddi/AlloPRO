@@ -1,5 +1,5 @@
 /**
- * AlloPro — Labeled text input.
+ * ALLO LM3LM — Labeled text input.
  * `ltr` forces left-to-right digits (prices, phones, durations) in both languages.
  */
 import { forwardRef, useState, type ReactNode } from 'react';

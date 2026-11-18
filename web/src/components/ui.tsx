@@ -1,5 +1,5 @@
 /**
- * AlloPro web — shared UI (mirrors the Figma components: Button, CategoryPill,
+ * ALLO LM3LM web — shared UI (mirrors the Figma components: Button, CategoryPill,
  * StatusPill, ProServiceCard, LiveQueueStickyBanner).
  */
 import { useEffect, type ButtonHTMLAttributes, type ReactNode } from 'react';

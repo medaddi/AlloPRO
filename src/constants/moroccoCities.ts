@@ -1,5 +1,5 @@
 /**
- * AlloPro — Moroccan cities, neighborhoods & geo helpers.
+ * ALLO LM3LM — Moroccan cities, neighborhoods & geo helpers.
  * Coordinates are city-center (WGS84). Map regions cover the whole Kingdom,
  * from Tanger to Lagouira, as one undivided territory.
  */
@@ -24,7 +24,7 @@ export type MoroccoCity = {
   /** Zoom level used when the map centers on this city. */
   delta: number;
   neighborhoods: Neighborhood[];
-  /** Cities where AlloPro is actively onboarding pros (shown first in the selector). */
+  /** Cities where ALLO LM3LM is actively onboarding pros (shown first in the selector). */
   launch: boolean;
 };
 
@@ -428,7 +428,7 @@ export const formatDistance = (km: number): string => {
   return `${Math.round(km)} km`;
 };
 
-/** Closest AlloPro city to a GPS position (used after expo-location permission). */
+/** Closest ALLO LM3LM city to a GPS position (used after expo-location permission). */
 export const nearestCity = (pos: LatLng): MoroccoCity => {
   let best = MOROCCO_CITIES[0];
   let bestDist = Number.POSITIVE_INFINITY;

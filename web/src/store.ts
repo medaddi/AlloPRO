@@ -1,5 +1,5 @@
 /**
- * AlloPro web — single Zustand store shared by Client Mode and Pro Mode.
+ * ALLO LM3LM web — single Zustand store shared by Client Mode and Pro Mode.
  * Persisted to localStorage and re-hydrated on `storage` events, so two browser
  * tabs (one client, one pro) stay in sync live — the same contract the Supabase
  * Realtime layer provides in the Android app.
@@ -258,7 +258,7 @@ export const useStore = create<State>()(
       resetDemo: () => set({ ...seedState(), ui: emptyUi, mode: 'client', view: 'app', clientTab: 'discover', proTab: 'guichet', cityId: 'casablanca', neighborhoodId: 'maarif', category: null, query: '', activeProId: 'p1' }),
     }),
     {
-      name: 'allopro-web-v1',
+      name: 'allolm3lm-web-v1',
       version: 2,
       migrate: () => ({}),
       storage: createJSONStorage(() => localStorage),
@@ -279,7 +279,7 @@ export const useStore = create<State>()(
 /* ------------------------------ cross-tab sync ------------------------------ */
 if (typeof window !== 'undefined') {
   window.addEventListener('storage', (e) => {
-    if (e.key === 'allopro-web-v1') void useStore.persist.rehydrate();
+    if (e.key === 'allolm3lm-web-v1') void useStore.persist.rehydrate();
   });
 }
 

@@ -1,5 +1,5 @@
 /**
- * AlloPro — Pro profile & 3-engine booking.
+ * ALLO LM3LM — Pro profile & 3-engine booking.
  *   queue       → "Prendre mon tour (#15)" with live queue count
  *   appointment → date strip + time slots → "Confirmer le RDV"
  *   ondemand    → GPS + address + issue + photo → "Demander l'intervention" + radar

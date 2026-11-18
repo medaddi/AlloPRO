@@ -1,5 +1,5 @@
 /**
- * AlloPro — WhatsApp & phone helpers with pre-filled FR / Darija (ar) templates.
+ * ALLO LM3LM — WhatsApp & phone helpers with pre-filled FR / Darija (ar) templates.
  * Numbers, prices, tickets and times are wrapped in Unicode LTR isolates so they
  * stay readable ("#14", "50 DH", "15:30", "+212 6…") inside Arabic messages.
  */
@@ -118,11 +118,11 @@ export type ClientToProCtx = BaseCtx & {
   issueNotes?: string | null;
 };
 
-/** Client → Pro: "I booked via AlloPro" (sent from the booking tracker once confirmed). */
+/** Client → Pro: "I booked via ALLO LM3LM" (sent from the booking tracker once confirmed). */
 export const buildClientToProMessage = (c: ClientToProCtx): string => {
   const svc = c.serviceName?.trim();
   if (c.lang === 'ar') {
-    const lines = [`السلام عليكم ${c.businessName} 👋`, `أنا ${c.clientName}، درت حجز عن طريق AlloPro.`];
+    const lines = [`السلام عليكم ${c.businessName} 👋`, `أنا ${c.clientName}، درت حجز عن طريق ALLO LM3LM.`];
     if (svc) lines.push(`الخدمة: ${svc}`);
     if (c.engine === 'queue' && c.ticketNumber != null) lines.push(`النوبة ديالي: ${ltr(`#${c.ticketNumber}`)}`);
     if (c.engine === 'appointment' && c.scheduledAt)
@@ -134,7 +134,7 @@ export const buildClientToProMessage = (c: ClientToProCtx): string => {
     lines.push('شكرا 🙏');
     return lines.join('\n');
   }
-  const lines = [`Bonjour ${c.businessName} 👋`, `C'est ${c.clientName}, j'ai réservé via AlloPro.`];
+  const lines = [`Bonjour ${c.businessName} 👋`, `C'est ${c.clientName}, j'ai réservé via ALLO LM3LM.`];
   if (svc) lines.push(`Service : ${svc}`);
   if (c.engine === 'queue' && c.ticketNumber != null) lines.push(`Mon ticket : #${c.ticketNumber}`);
   if (c.engine === 'appointment' && c.scheduledAt)
@@ -178,7 +178,7 @@ export const buildProConfirmationMessage = (c: ProConfirmationCtx): string => {
       if (c.etaMinutes != null) lines.push(`المعلم جاي فالطريق، غادي يوصل تقريبا فـ ${ltr(c.etaMinutes)} دقيقة 🛠️`);
       if (c.address) lines.push(`العنوان: ${c.address}`);
     }
-    lines.push('شكرا على الثقة — AlloPro');
+    lines.push('شكرا على الثقة — ALLO LM3LM');
     return lines.join('\n');
   }
   const lines = [`Bonjour ${c.clientName} 👋`, `${c.businessName} a confirmé votre réservation ✅`];
@@ -201,7 +201,7 @@ export const buildProConfirmationMessage = (c: ProConfirmationCtx): string => {
     if (c.etaMinutes != null) lines.push(`L'artisan est en route, arrivée estimée dans ~${c.etaMinutes} min 🛠️`);
     if (c.address) lines.push(`Adresse : ${c.address}`);
   }
-  lines.push('Merci pour votre confiance — AlloPro');
+  lines.push('Merci pour votre confiance — ALLO LM3LM');
   return lines.join('\n');
 };
 

@@ -1,5 +1,5 @@
 /**
- * AlloPro — Welcome / onboarding.
+ * ALLO LM3LM — Welcome / onboarding.
  * Vector hero (animated logo + floating category chips), FR | ع language
  * switch, and Client / Pro role selection. CTA sits in the thumb zone.
  */
@@ -61,8 +61,8 @@ export default function WelcomeScreen() {
     <View style={[styles.screen, { paddingTop: insets.top }]}>
       <View style={styles.topBar}>
         <Text style={styles.brand}>
-          <Text style={{ color: colors.primary.DEFAULT }}>Allo</Text>
-          <Text style={{ color: colors.accent.DEFAULT }}>Pro</Text>
+          <Text style={{ color: colors.primary.DEFAULT }}>ALLO </Text>
+          <Text style={{ color: colors.accent.DEFAULT }}>LM3LM</Text>
         </Text>
         <LanguageSwitch />
       </View>

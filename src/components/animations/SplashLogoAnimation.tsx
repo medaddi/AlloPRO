@@ -1,5 +1,5 @@
 /**
- * AlloPro — Splash logo animation.
+ * ALLO LM3LM — Splash logo animation.
  * - Stylized 'A' (#1D4355) springs from 0.5 → 1.0 (damping 12, stiffness 100)
  * - Orange gear (#F08A4B) behind the 'A' rotates 360° continuously (4000ms, linear)
  * - Clock-badge checkmark draws itself via strokeDashoffset (600ms)
@@ -39,7 +39,7 @@ const CHECK_LENGTH = 40;
 type Props = {
   /** Logo square size in dp. */
   size?: number;
-  /** Shows "AlloPro" + tagline under the logo. */
+  /** Shows "ALLO LM3LM" + tagline under the logo. */
   showWordmark?: boolean;
   /** Extra time (ms) to hold the finished logo before calling onFinish. */
   holdMs?: number;
@@ -144,7 +144,7 @@ export default function SplashLogoAnimation({
       style={[styles.root, style]}
       accessible
       accessibilityRole="image"
-      accessibilityLabel={`AlloPro. ${tagline}`}
+      accessibilityLabel={`ALLO LM3LM. ${tagline}`}
     >
       <View style={{ width: size, height: size }}>
         <Animated.View style={[StyleSheet.absoluteFill, gearStyle]}>
@@ -186,8 +186,8 @@ export default function SplashLogoAnimation({
         <Animated.View style={[styles.wordmarkWrap, wordmarkStyle]}>
           {/* Brand name stays Latin & LTR in both languages. */}
           <Animated.Text style={styles.wordmark}>
-            <Animated.Text style={{ color: colors.primary.DEFAULT }}>Allo</Animated.Text>
-            <Animated.Text style={{ color: colors.accent.DEFAULT }}>Pro</Animated.Text>
+            <Animated.Text style={{ color: colors.primary.DEFAULT }}>ALLO </Animated.Text>
+            <Animated.Text style={{ color: colors.accent.DEFAULT }}>LM3LM</Animated.Text>
           </Animated.Text>
           <Animated.Text
             style={[

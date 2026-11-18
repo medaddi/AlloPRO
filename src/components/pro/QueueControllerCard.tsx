@@ -1,5 +1,5 @@
 /**
- * AlloPro — Pro queue controller (barbers, car wash…).
+ * ALLO LM3LM — Pro queue controller (barbers, car wash…).
  * Giant "now serving" ticket, waiting count, next clients,
  * "CLIENT SUIVANT ➔" and "+ Client sur place" (walk-in).
  */

@@ -1,5 +1,5 @@
 /**
- * AlloPro — Interactive Morocco map.
+ * ALLO LM3LM — Interactive Morocco map.
  * Live pro pins, category filter, recenter, and a bottom-sheet preview with
  * distance, wait time, Google Maps / Waze directions and "Réserver".
  */

@@ -1,5 +1,5 @@
 -- =============================================================================
--- AlloPro — Security layer (Row Level Security + hardened queue RPCs)
+-- ALLO LM3LM — Security layer (Row Level Security + hardened queue RPCs)
 -- Run in the Supabase SQL Editor AFTER the schema from the master spec.
 -- Safe to re-run: every statement is idempotent.
 -- =============================================================================
@@ -24,7 +24,7 @@ $$;
 CREATE OR REPLACE FUNCTION public.is_trusted_context()
 RETURNS BOOLEAN
 LANGUAGE sql STABLE AS $$
-  SELECT coalesce(current_setting('allopro.trusted', true), '') = 'on'
+  SELECT coalesce(current_setting('allolm3lm.trusted', true), '') = 'on'
       OR coalesce(auth.jwt() ->> 'role', '') = 'service_role';
 $$;
 
@@ -233,12 +233,12 @@ CREATE OR REPLACE FUNCTION public.refresh_pro_rating()
 RETURNS TRIGGER
 LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$
 BEGIN
-  PERFORM set_config('allopro.trusted', 'on', true);
+  PERFORM set_config('allolm3lm.trusted', 'on', true);
   UPDATE public.pro_profiles p
   SET rating_avg   = coalesce((SELECT round(avg(rating)::numeric, 1) FROM public.reviews r WHERE r.pro_id = p.id), 5.0),
       rating_count = (SELECT count(*) FROM public.reviews r WHERE r.pro_id = p.id)
   WHERE p.id = NEW.pro_id;
-  PERFORM set_config('allopro.trusted', 'off', true);
+  PERFORM set_config('allolm3lm.trusted', 'off', true);
   RETURN NEW;
 END;
 $$;
@@ -290,7 +290,7 @@ BEGIN
     RAISE EXCEPTION 'already in queue' USING ERRCODE = '23505';
   END IF;
 
-  PERFORM set_config('allopro.trusted', 'on', true);
+  PERFORM set_config('allolm3lm.trusted', 'on', true);
 
   -- New day → restart numbering at #1.
   IF NOT EXISTS (
@@ -318,7 +318,7 @@ BEGIN
     p_client_id, p_walkin_name, p_pro_id, p_service_id, 'queue', 'confirmed', v_next_ticket, coalesce(v_price, 0), CURRENT_DATE
   ) RETURNING * INTO v_booking;
 
-  PERFORM set_config('allopro.trusted', 'off', true);
+  PERFORM set_config('allolm3lm.trusted', 'off', true);
   RETURN v_booking;
 END;
 $$;
@@ -340,7 +340,7 @@ BEGIN
   SELECT current_queue_number INTO v_current
   FROM public.pro_profiles WHERE id = p_pro_id FOR UPDATE;
 
-  PERFORM set_config('allopro.trusted', 'on', true);
+  PERFORM set_config('allolm3lm.trusted', 'on', true);
 
   UPDATE public.bookings
   SET status = 'completed'
@@ -358,7 +358,7 @@ BEGIN
     AND status IN ('pending', 'confirmed');
 
   IF v_next IS NULL THEN
-    PERFORM set_config('allopro.trusted', 'off', true);
+    PERFORM set_config('allolm3lm.trusted', 'off', true);
     RETURN v_current;
   END IF;
 
@@ -371,7 +371,7 @@ BEGIN
     AND booking_type = 'queue'
     AND queue_number = v_next;
 
-  PERFORM set_config('allopro.trusted', 'off', true);
+  PERFORM set_config('allolm3lm.trusted', 'off', true);
   RETURN v_next;
 END;
 $$;

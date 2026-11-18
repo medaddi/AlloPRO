@@ -85,8 +85,8 @@ export const clientToProMessage = (lang: Lang, pro: Pro, b: Booking, clientName:
   const ticket = b.ticket ? (lang === 'ar' ? `\nالنوبة ديالي: ${ltr(`#${b.ticket}`)}` : `\nMon ticket : #${b.ticket}`) : '';
   const when = b.scheduledAt ? (lang === 'ar' ? `\nالموعد: ${dayLabel(new Date(b.scheduledAt), 'ar')} ${ltr(formatTime(new Date(b.scheduledAt)))}` : `\nRDV : ${dayLabel(new Date(b.scheduledAt), 'fr')} à ${formatTime(new Date(b.scheduledAt))}`) : '';
   return lang === 'ar'
-    ? `السلام عليكم ${pro.name} 👋\nأنا ${clientName}، درت حجز عن طريق AlloPro.${ticket}${when}\nشكرا 🙏`
-    : `Bonjour ${pro.name} 👋\nC'est ${clientName}, j'ai réservé via AlloPro.${ticket}${when}\nMerci 🙏`;
+    ? `السلام عليكم ${pro.name} 👋\nأنا ${clientName}، درت حجز عن طريق ALLO LM3LM.${ticket}${when}\nشكرا 🙏`
+    : `Bonjour ${pro.name} 👋\nC'est ${clientName}, j'ai réservé via ALLO LM3LM.${ticket}${when}\nMerci 🙏`;
 };
 
 /** Shrinks a picked image to keep it light in localStorage (cross-tab sync). */

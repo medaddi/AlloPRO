@@ -1,5 +1,5 @@
 /**
- * AlloPro — Bilingual engine (Français LTR / العربية-الدارجة RTL).
+ * ALLO LM3LM — Bilingual engine (Français LTR / العربية-الدارجة RTL).
  *
  * - Language priority: saved choice → device locale → French.
  * - RTL is applied with I18nManager; React Native only flips the layout after a
@@ -21,8 +21,8 @@ import fr from './fr.json';
 
 export type { AppLanguage };
 
-export const LANGUAGE_STORAGE_KEY = 'allopro.language';
-const RTL_RELOAD_GUARD_KEY = 'allopro.rtlReloadFor';
+export const LANGUAGE_STORAGE_KEY = 'allolm3lm.language';
+const RTL_RELOAD_GUARD_KEY = 'allolm3lm.rtlReloadFor';
 
 export const SUPPORTED_LANGUAGES: readonly AppLanguage[] = ['fr', 'ar'] as const;
 
@@ -95,7 +95,7 @@ async function reloadOnceForDirection(lang: AppLanguage): Promise<boolean> {
   if (alreadyTried === lang) {
     if (__DEV__) {
       console.warn(
-        `[AlloPro i18n] Layout direction still wrong for "${lang}" after a reload. Check "extra.supportsRTL": true in app.json and rebuild the dev client.`,
+        `[ALLO LM3LM i18n] Layout direction still wrong for "${lang}" after a reload. Check "extra.supportsRTL": true in app.json and rebuild the dev client.`,
       );
     }
     return false;

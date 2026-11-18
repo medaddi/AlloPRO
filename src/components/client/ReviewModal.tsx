@@ -1,5 +1,5 @@
 /**
- * AlloPro — 1-to-5 star review after a completed booking.
+ * ALLO LM3LM — 1-to-5 star review after a completed booking.
  */
 import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';

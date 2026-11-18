@@ -1,5 +1,5 @@
 /**
- * AlloPro — Supabase client, typed schema, atomic queue RPCs & Realtime hooks.
+ * ALLO LM3LM — Supabase client, typed schema, atomic queue RPCs & Realtime hooks.
  */
 import 'react-native-url-polyfill/auto';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -186,7 +186,7 @@ const SUPABASE_ANON_KEY = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
 
 if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
   throw new Error(
-    '[AlloPro] Missing EXPO_PUBLIC_SUPABASE_URL or EXPO_PUBLIC_SUPABASE_ANON_KEY. Copy .env.example to .env and restart Metro with `npx expo start -c`.',
+    '[ALLO LM3LM] Missing EXPO_PUBLIC_SUPABASE_URL or EXPO_PUBLIC_SUPABASE_ANON_KEY. Copy .env.example to .env and restart Metro with `npx expo start -c`.',
   );
 }
 
@@ -235,11 +235,11 @@ export const peopleAhead = (myTicket: number, currentServing: number): number =>
 export const estimateWaitMinutes = (ahead: number, avgServiceMinutes = 20): number =>
   Math.max(0, Math.round(ahead * avgServiceMinutes));
 
-export class AlloProDataError extends Error {
+export class AlloLm3lmDataError extends Error {
   code?: string;
   constructor(err: PostgrestError | Error) {
     super(err.message);
-    this.name = 'AlloProDataError';
+    this.name = 'AlloLm3lmDataError';
     if ('code' in err) this.code = err.code;
   }
 }
@@ -264,15 +264,15 @@ export async function takeQueueTicket(params: {
     p_service_id: params.serviceId,
     p_walkin_name: params.walkinName ?? null,
   });
-  if (error) throw new AlloProDataError(error);
-  if (!data) throw new AlloProDataError(new Error('take_queue_ticket returned no booking'));
+  if (error) throw new AlloLm3lmDataError(error);
+  if (!data) throw new AlloLm3lmDataError(new Error('take_queue_ticket returned no booking'));
   return data as BookingRow;
 }
 
 /** Pro taps "CLIENT SUIVANT" — returns the new ticket being served. */
 export async function advanceProQueue(proId: string): Promise<number> {
   const { data, error } = await supabase.rpc('advance_pro_queue', { p_pro_id: proId });
-  if (error) throw new AlloProDataError(error);
+  if (error) throw new AlloLm3lmDataError(error);
   return data as number;
 }
 
@@ -294,7 +294,7 @@ type LiveQueueState = {
 export function useProLiveQueue(proId: string | null | undefined) {
   const [state, setState] = useState<LiveQueueState | null>(null);
   const [loading, setLoading] = useState<boolean>(!!proId);
-  const [error, setError] = useState<AlloProDataError | null>(null);
+  const [error, setError] = useState<AlloLm3lmDataError | null>(null);
 
   const apply = useCallback((row: Pick<ProProfileRow, 'is_open' | 'current_queue_number' | 'last_issued_ticket'>) => {
     setState({
@@ -312,7 +312,7 @@ export function useProLiveQueue(proId: string | null | undefined) {
       .select('is_open, current_queue_number, last_issued_ticket')
       .eq('id', proId)
       .single();
-    if (err) setError(new AlloProDataError(err));
+    if (err) setError(new AlloLm3lmDataError(err));
     else if (data) {
       setError(null);
       apply(data);
@@ -355,12 +355,12 @@ export function useProLiveQueue(proId: string | null | undefined) {
 export function useBookingLive(bookingId: string | null | undefined) {
   const [booking, setBooking] = useState<BookingRow | null>(null);
   const [loading, setLoading] = useState<boolean>(!!bookingId);
-  const [error, setError] = useState<AlloProDataError | null>(null);
+  const [error, setError] = useState<AlloLm3lmDataError | null>(null);
 
   const refresh = useCallback(async () => {
     if (!bookingId) return;
     const { data, error: err } = await supabase.from('bookings').select('*').eq('id', bookingId).single();
-    if (err) setError(new AlloProDataError(err));
+    if (err) setError(new AlloLm3lmDataError(err));
     else {
       setError(null);
       setBooking(data);
@@ -414,7 +414,7 @@ export const BOOKING_DETAILS_SELECT =
 export function useProTodayBookings(proId: string | null | undefined) {
   const [bookings, setBookings] = useState<BookingWithDetails[]>([]);
   const [loading, setLoading] = useState<boolean>(!!proId);
-  const [error, setError] = useState<AlloProDataError | null>(null);
+  const [error, setError] = useState<AlloLm3lmDataError | null>(null);
   const inFlight = useRef(false);
   const pending = useRef(false);
 
@@ -436,7 +436,7 @@ export function useProTodayBookings(proId: string | null | undefined) {
         .order('queue_number', { ascending: true, nullsFirst: false })
         .order('scheduled_at', { ascending: true, nullsFirst: false })
         .order('created_at', { ascending: true });
-      if (err) setError(new AlloProDataError(err));
+      if (err) setError(new AlloLm3lmDataError(err));
       else {
         setError(null);
         setBookings((data ?? []) as unknown as BookingWithDetails[]);
@@ -476,7 +476,7 @@ export function useProTodayBookings(proId: string | null | undefined) {
 export function useClientActiveBookings(clientId: string | null | undefined) {
   const [bookings, setBookings] = useState<BookingRow[]>([]);
   const [loading, setLoading] = useState<boolean>(!!clientId);
-  const [error, setError] = useState<AlloProDataError | null>(null);
+  const [error, setError] = useState<AlloLm3lmDataError | null>(null);
 
   const refresh = useCallback(async () => {
     if (!clientId) return;
@@ -487,7 +487,7 @@ export function useClientActiveBookings(clientId: string | null | undefined) {
       .in('status', ['pending', 'confirmed', 'in_progress'])
       .gte('booking_date', todayISODate())
       .order('created_at', { ascending: false });
-    if (err) setError(new AlloProDataError(err));
+    if (err) setError(new AlloLm3lmDataError(err));
     else {
       setError(null);
       setBookings(data ?? []);
@@ -530,7 +530,7 @@ export function useServices(proId: string | null | undefined, options: { onlyAct
   const { onlyActive = false } = options;
   const [services, setServices] = useState<ServiceRow[]>([]);
   const [loading, setLoading] = useState<boolean>(!!proId);
-  const [error, setError] = useState<AlloProDataError | null>(null);
+  const [error, setError] = useState<AlloLm3lmDataError | null>(null);
 
   const refresh = useCallback(async () => {
     if (!proId) {
@@ -541,7 +541,7 @@ export function useServices(proId: string | null | undefined, options: { onlyAct
     let query = supabase.from('services').select('*').eq('pro_id', proId);
     if (onlyActive) query = query.eq('is_active', true);
     const { data, error: err } = await query.order('price_mad', { ascending: true });
-    if (err) setError(new AlloProDataError(err));
+    if (err) setError(new AlloLm3lmDataError(err));
     else {
       setError(null);
       setServices(data ?? []);
@@ -563,7 +563,7 @@ let categoriesCache: CategoryWithJobs[] | null = null;
 export function useCategories() {
   const [categories, setCategories] = useState<CategoryWithJobs[]>(categoriesCache ?? []);
   const [loading, setLoading] = useState(!categoriesCache);
-  const [error, setError] = useState<AlloProDataError | null>(null);
+  const [error, setError] = useState<AlloLm3lmDataError | null>(null);
 
   useEffect(() => {
     if (categoriesCache) return;
@@ -574,7 +574,7 @@ export function useCategories() {
       .order('sort_order', { ascending: true })
       .then(({ data, error: err }) => {
         if (!active) return;
-        if (err) setError(new AlloProDataError(err));
+        if (err) setError(new AlloLm3lmDataError(err));
         else {
           categoriesCache = ((data ?? []) as unknown as CategoryWithJobs[]).map((c) => ({
             ...c,

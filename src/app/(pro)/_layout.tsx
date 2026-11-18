@@ -1,5 +1,5 @@
 /**
- * AlloPro — Pro Mode tab bar (Guichet, Services, Caisse, Réglages).
+ * ALLO LM3LM — Pro Mode tab bar (Guichet, Services, Caisse, Réglages).
  * Pros without a shop yet see the shop setup instead of the tabs.
  */
 import { useEffect } from 'react';

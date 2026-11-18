@@ -1,5 +1,5 @@
 /**
- * AlloPro — Pro service & price catalog (MAD).
+ * ALLO LM3LM — Pro service & price catalog (MAD).
  * Add / edit / hide / delete services, bilingual titles, price in DH, duration.
  */
 import { useEffect, useState } from 'react';

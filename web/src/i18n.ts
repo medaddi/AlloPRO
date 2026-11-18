@@ -1,5 +1,5 @@
 /**
- * AlloPro web — FR (LTR) / Darija-Arabic (RTL) dictionary.
+ * ALLO LM3LM web — FR (LTR) / Darija-Arabic (RTL) dictionary.
  * `t('key', { n: 3 })` interpolates {n}. Numbers stay LTR via the `.ltr` class / LRI marks.
  */
 import { useStore } from './store';

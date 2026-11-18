@@ -1,5 +1,5 @@
 /**
- * AlloPro — Floating live ticket widget (pinned on the client Home screen).
+ * ALLO LM3LM — Floating live ticket widget (pinned on the client Home screen).
  *   Queue:       "Votre tour : #14 • En cours : #12 (~20 min)" — Realtime via Supabase
  *   Appointment: "RDV aujourd'hui à 15:30"
  *   On-demand:   "Recherche d'un artisan…" → "L'artisan est en route" → "Intervention en cours"

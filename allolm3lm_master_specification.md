@@ -1,4 +1,4 @@
-# ALLOPRO — Master Product, Design, & Technical Specification
+# ALLO LM3LM — Master Product, Design, & Technical Specification
 
 **Target Market:** Kingdom of Morocco (MA)  
 **Primary Platform:** Android (APK & Google Play Store) — iOS Compatible via Expo  
@@ -9,7 +9,7 @@
 
 ## 1. PRODUCT VISION & MOROCCAN MARKET FIT
 
-**AlloPro** solves the daily chaos of waiting lines, unorganized phone bookings, and unreliable home repairs across Morocco. Instead of forcing every profession into a single rigid calendar, AlloPro groups Morocco's most requested services into **3 practical execution engines** inside one unified platform:
+**ALLO LM3LM** solves the daily chaos of waiting lines, unorganized phone bookings, and unreliable home repairs across Morocco. Instead of forcing every profession into a single rigid calendar, ALLO LM3LM groups Morocco's most requested services into **3 practical execution engines** inside one unified platform:
 
 | Sector (القطاع) | Target Professions (المهن المستهدفة) | Core Market Problem | Assigned Engine |
 | :--- | :--- | :--- | :--- |
@@ -85,7 +85,7 @@ All animations run natively at **60 FPS** on the UI thread using `react-native-r
 ### 3.2 AI Illustration Generation Prompts (For `assets/illustrations/`)
 
 - **Master UI/UX Asset Sheet Prompt:**
-  > `A modern, clean UI/UX mobile app design asset sheet for a handyman and home services app named "AlloPro". Flat vector illustration style, rounded thick outlines. Color palette: deep slate blue (#1D4355), vibrant orange (#F08A4B), soft mint teal (#A5C4C4), and off-white background (#F4F7F7). The sheet includes: 1. Splash screen illustration with a friendly technician mascot wearing overalls and holding a wrench standing next to a giant stylized letter 'A' with a gear and clock. 2. Map radar searching interface with a pulsing location pin with a checkmark inside, surrounded by floating small gears and wrenches. 3. Micro-interaction icon set: rotating orange gear, fast-ticking clock, floating map pin, and rounded orange progress bar. 4. Service tracking graphic showing a technician running on a map route with a "Pro Arrived" notification badge. 5. Success state badge featuring a map pin with an orange checkmark bursting with celebratory stars and confetti lines. High resolution, Dribbble/Behance UI trend, vector art, isolated on light background --ar 16:9`
+  > `A modern, clean UI/UX mobile app design asset sheet for a handyman and home services app named "ALLO LM3LM". Flat vector illustration style, rounded thick outlines. Color palette: deep slate blue (#1D4355), vibrant orange (#F08A4B), soft mint teal (#A5C4C4), and off-white background (#F4F7F7). The sheet includes: 1. Splash screen illustration with a friendly technician mascot wearing overalls and holding a wrench standing next to a giant stylized letter 'A' with a gear and clock. 2. Map radar searching interface with a pulsing location pin with a checkmark inside, surrounded by floating small gears and wrenches. 3. Micro-interaction icon set: rotating orange gear, fast-ticking clock, floating map pin, and rounded orange progress bar. 4. Service tracking graphic showing a technician running on a map route with a "Pro Arrived" notification badge. 5. Success state badge featuring a map pin with an orange checkmark bursting with celebratory stars and confetti lines. High resolution, Dribbble/Behance UI trend, vector art, isolated on light background --ar 16:9`
 
 - **1. Onboarding Mascot (`onboarding-mascot.png`):**
   > `Flat vector illustration for a mobile app onboarding screen. A friendly handyman character in blue overalls and cap, smiling and giving a thumbs up, leaning against a giant dark blue (#1D4355) letter 'A' combined with an orange (#F08A4B) gear and a clock with a checkmark. Soft teal (#A5C4C4) and orange accents, clean white background, modern tech startup vector style, thick outlines, minimal shadows.`
@@ -345,7 +345,7 @@ ALTER PUBLICATION supabase_realtime ADD TABLE public.bookings;
 ## 6. COMPLETE FOLDER & FILE STRUCTURE
 
 ```text
-allopro/
+allolm3lm/
 ├── app.json                                   # Android package config, permissions, adaptive icon
 ├── eas.json                                   # APK & Play Store build profiles
 ├── tailwind.config.js                         # NativeWind palette (#1D4355, #F08A4B, #A5C4C4, #F4F7F7)
@@ -411,7 +411,7 @@ allopro/
 Use the following instructions inside **Cursor, Windsurf, Claude, or here in chat** to generate the entire codebase cleanly without skipping any file:
 
 > **EXECUTION PROMPT:**  
-> "Read `ALLOPRO_MASTER_SPEC.md` completely. We will build the entire production-ready React Native (Expo Router + TypeScript + NativeWind + Supabase + Reanimated) application across **6 sequential phases**. Do not use `// TODO` placeholders or mock shortcuts. Write complete, copy-pasteable files for each phase and wait for my confirmation (`Next` / `Kmmel`) before moving to the next phase:
+> "Read `ALLO_LM3LM_MASTER_SPEC.md` completely. We will build the entire production-ready React Native (Expo Router + TypeScript + NativeWind + Supabase + Reanimated) application across **6 sequential phases**. Do not use `// TODO` placeholders or mock shortcuts. Write complete, copy-pasteable files for each phase and wait for my confirmation (`Next` / `Kmmel`) before moving to the next phase:
 > 
 > - **PHASE 1: Project Config, Theme & Morocco Constants** (`package.json`, `tailwind.config.js`, `src/constants/theme.ts`, `src/constants/moroccoCities.ts`, `src/constants/mapStyleMorocco.json`, `src/lib/supabase.ts`, `src/lib/whatsapp.ts`).
 > - **PHASE 2: Bilingual Engine (FR/AR + RTL) & Global State** (`src/i18n/fr.json`, `src/i18n/ar.json`, `src/i18n/index.ts`, `src/store/useAppStore.ts`).
@@ -431,6 +431,6 @@ Use the following instructions inside **Cursor, Windsurf, Claude, or here in cha
 2. **Field Onboarding Strategy (First 30 Days):**
    - Start in **1 city and 1–2 busy neighborhoods** (e.g., 20 barbershops, 10 car washes, and 15 plumbers/electricians).
    - Offer a **90-day free trial** (`subscription_end_date = NOW() + 90 days` is already built into the SQL schema).
-   - Print a clean **AlloPro QR Code Sticker** (`#1D4355` & `#F08A4B`) for each shop window: *"Scannez pour prendre votre tour sans attendre / شد نوبتك بلا ما تسنى"*.
+   - Print a clean **ALLO LM3LM QR Code Sticker** (`#1D4355` & `#F08A4B`) for each shop window: *"Scannez pour prendre votre tour sans attendre / شد نوبتك بلا ما تسنى"*.
 3. **Monetization (After Trial):**
    - Fixed monthly subscription for Pros (**99 DH to 149 DH / month**) paid via CIH / Attijari / Barid Bank transfer or CashPlus, activated with 1 click in Supabase.

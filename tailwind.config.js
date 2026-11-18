@@ -1,5 +1,5 @@
 /**
- * AlloPro — NativeWind v4 / Tailwind config
+ * ALLO LM3LM — NativeWind v4 / Tailwind config
  * Values mirror src/constants/theme.ts (single source of truth for JS-side styles).
  * If you change a color here, change it in theme.ts too.
  *

@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "AlloPro",
-    "slug": "allopro",
-    "scheme": "allopro",
+    "name": "ALLO LM3LM",
+    "slug": "allolm3lm",
+    "scheme": "allolm3lm",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -14,16 +14,16 @@
       "resizeMode": "contain"
     },
     "ios": {
-      "bundleIdentifier": "ma.allopro.app",
+      "bundleIdentifier": "ma.allolm3lm.app",
       "supportsTablet": false,
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "AlloPro utilise votre position pour afficher les pros les plus proches et guider l'artisan jusqu'à vous.",
-        "NSCameraUsageDescription": "AlloPro utilise l'appareil photo pour joindre une photo du problème à votre demande.",
-        "NSPhotoLibraryUsageDescription": "AlloPro accède à vos photos pour joindre une image du problème ou de votre boutique."
+        "NSLocationWhenInUseUsageDescription": "ALLO LM3LM utilise votre position pour afficher les pros les plus proches et guider l'artisan jusqu'à vous.",
+        "NSCameraUsageDescription": "ALLO LM3LM utilise l'appareil photo pour joindre une photo du problème à votre demande.",
+        "NSPhotoLibraryUsageDescription": "ALLO LM3LM accède à vos photos pour joindre une image du problème ou de votre boutique."
       }
     },
     "android": {
-      "package": "ma.allopro.app",
+      "package": "ma.allolm3lm.app",
       "softwareKeyboardLayoutMode": "resize",
       "permissions": [
         "ACCESS_COARSE_LOCATION",
@@ -40,14 +40,14 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "AlloPro utilise votre position pour afficher les pros les plus proches et guider l'artisan jusqu'à vous."
+          "locationWhenInUsePermission": "ALLO LM3LM utilise votre position pour afficher les pros les plus proches et guider l'artisan jusqu'à vous."
         }
       ],
       [
         "expo-image-picker",
         {
-          "photosPermission": "AlloPro accède à vos photos pour joindre une image du problème ou de votre boutique.",
-          "cameraPermission": "AlloPro utilise l'appareil photo pour joindre une photo du problème à votre demande."
+          "photosPermission": "ALLO LM3LM accède à vos photos pour joindre une image du problème ou de votre boutique.",
+          "cameraPermission": "ALLO LM3LM utilise l'appareil photo pour joindre une photo du problème à votre demande."
         }
       ],
       [

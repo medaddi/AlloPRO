@@ -1,5 +1,5 @@
 /**
- * AlloPro — Scannable Pro card (max 3 data points).
+ * ALLO LM3LM — Scannable Pro card (max 3 data points).
  *   Line 1: Business name + verified badge + ★ rating
  *   Line 2: Category + neighborhood • distance
  *   Line 3: Live status pill ("Ouvert • 2 en attente" / "À partir de 30 DH" / "Fermé")

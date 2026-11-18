@@ -1,5 +1,5 @@
 /**
- * AlloPro — +212 phone login (Supabase SMS OTP).
+ * ALLO LM3LM — +212 phone login (Supabase SMS OTP).
  * Steps: phone → 6-digit code → profile (name + city) for new accounts.
  * Phone numbers and codes are always laid out LTR, in both languages.
  */
@@ -126,7 +126,7 @@ export default function LoginScreen() {
     const { error: err } = await supabase.auth.signInWithOtp({ phone: e164, options: { channel: 'sms' } });
     setLoading(false);
     if (err) {
-      if (__DEV__) console.warn('[AlloPro] signInWithOtp', err.message);
+      if (__DEV__) console.warn('[ALLO LM3LM] signInWithOtp', err.message);
       fail(t('errors.generic'));
       return;
     }
@@ -193,7 +193,7 @@ export default function LoginScreen() {
       triggerHaptic('success');
       await loadProfile(); // root guard redirects once the profile exists
     } catch (err) {
-      if (__DEV__) console.warn('[AlloPro] finishProfile', err);
+      if (__DEV__) console.warn('[ALLO LM3LM] finishProfile', err);
       fail(t('errors.generic'));
     } finally {
       setLoading(false);

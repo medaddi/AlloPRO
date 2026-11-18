@@ -1,5 +1,5 @@
 /**
- * AlloPro — Pro settings: shop info (bilingual description, address,
+ * ALLO LM3LM — Pro settings: shop info (bilingual description, address,
  * neighborhood, GPS pin), subscription status, language, switch to client
  * mode, logout.
  */
@@ -264,7 +264,7 @@ export default function ProSettingsScreen() {
           />
         </View>
 
-        <Text style={styles.version}>{ltr('AlloPro • v1.0.0')}</Text>
+        <Text style={styles.version}>{ltr('ALLO LM3LM • v1.0.0')}</Text>
       </ScrollView>
     </View>
   );

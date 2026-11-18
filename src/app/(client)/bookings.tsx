@@ -1,5 +1,5 @@
 /**
- * AlloPro — My bookings & live tracker.
+ * ALLO LM3LM — My bookings & live tracker.
  * Status stepper (En attente → Confirmé → En route / En cours → Terminé),
  * WhatsApp / Call unlocked once confirmed, cancel, and 1-5 star reviews.
  */

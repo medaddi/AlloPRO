@@ -1,5 +1,5 @@
 /**
- * AlloPro — Client-side data: pro discovery, pro details, the client's bookings
+ * ALLO LM3LM — Client-side data: pro discovery, pro details, the client's bookings
  * (with pro contact once confirmed), appointment availability and booking actions.
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -7,7 +7,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { ProListItem } from '../components/client/ProCard';
 import { distanceKm, type LatLng } from '../constants/moroccoCities';
 import {
-  AlloProDataError,
+  AlloLm3lmDataError,
   supabase,
   todayISODate,
   type BookingEngine,
@@ -59,7 +59,7 @@ export const sortPros = (list: ProListItem[]): ProListItem[] =>
 export function usePros(cityName: string, userLocation: LatLng | null) {
   const [raw, setRaw] = useState<RawPro[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<AlloProDataError | null>(null);
+  const [error, setError] = useState<AlloLm3lmDataError | null>(null);
 
   const refresh = useCallback(async () => {
     const { data, error: err } = await supabase
@@ -68,7 +68,7 @@ export function usePros(cityName: string, userLocation: LatLng | null) {
       .eq('city', cityName)
       .eq('subscription_active', true)
       .limit(300);
-    if (err) setError(new AlloProDataError(err));
+    if (err) setError(new AlloLm3lmDataError(err));
     else {
       setError(null);
       setRaw((data ?? []) as unknown as RawPro[]);
@@ -107,7 +107,7 @@ export function useProDetails(proId: string | null | undefined, userLocation: La
   const [raw, setRaw] = useState<RawPro | null>(null);
   const [reviews, setReviews] = useState<PublicReview[]>([]);
   const [loading, setLoading] = useState(!!proId);
-  const [error, setError] = useState<AlloProDataError | null>(null);
+  const [error, setError] = useState<AlloLm3lmDataError | null>(null);
 
   const refresh = useCallback(async () => {
     if (!proId) return;
@@ -120,7 +120,7 @@ export function useProDetails(proId: string | null | undefined, userLocation: La
         .order('created_at', { ascending: false })
         .limit(10),
     ]);
-    if (proRes.error) setError(new AlloProDataError(proRes.error));
+    if (proRes.error) setError(new AlloLm3lmDataError(proRes.error));
     else {
       setError(null);
       setRaw((proRes.data as unknown as RawPro) ?? null);
@@ -182,7 +182,7 @@ export const isActiveBooking = (b: BookingRow) => ACTIVE.includes(b.status);
 export function useClientBookings(clientId: string | null | undefined) {
   const [bookings, setBookings] = useState<ClientBooking[]>([]);
   const [loading, setLoading] = useState(!!clientId);
-  const [error, setError] = useState<AlloProDataError | null>(null);
+  const [error, setError] = useState<AlloLm3lmDataError | null>(null);
   const inFlight = useRef(false);
   const pending = useRef(false);
 
@@ -201,7 +201,7 @@ export function useClientBookings(clientId: string | null | undefined) {
         .eq('client_id', clientId)
         .order('created_at', { ascending: false })
         .limit(100);
-      if (err) setError(new AlloProDataError(err));
+      if (err) setError(new AlloLm3lmDataError(err));
       else {
         setError(null);
         const rows = (data ?? []) as unknown as (ClientBooking & { review: unknown })[];
@@ -259,7 +259,7 @@ export type BookedSlot = { start: Date; minutes: number };
 
 export async function getBookedSlots(proId: string, day: Date): Promise<BookedSlot[]> {
   const { data, error } = await supabase.rpc('get_booked_slots', { p_pro_id: proId, p_date: todayISODate(day) });
-  if (error) throw new AlloProDataError(error);
+  if (error) throw new AlloLm3lmDataError(error);
   return ((data ?? []) as { scheduled_at: string; duration_minutes: number }[]).map((r) => ({
     start: new Date(r.scheduled_at),
     minutes: r.duration_minutes || 30,
@@ -285,7 +285,7 @@ export async function createAppointment(params: {
     })
     .select('*')
     .single();
-  if (error) throw new AlloProDataError(error);
+  if (error) throw new AlloLm3lmDataError(error);
   return data;
 }
 
@@ -295,7 +295,7 @@ export async function uploadIssuePhoto(userId: string, uri: string, mimeType = '
   const ext = mimeType.includes('png') ? 'png' : 'jpg';
   const path = `${userId}/${Date.now()}.${ext}`;
   const { error } = await supabase.storage.from('issue-photos').upload(path, body, { contentType: mimeType, upsert: false });
-  if (error) throw new AlloProDataError(error);
+  if (error) throw new AlloLm3lmDataError(error);
   return supabase.storage.from('issue-photos').getPublicUrl(path).data.publicUrl;
 }
 
@@ -325,13 +325,13 @@ export async function createSosRequest(params: {
     })
     .select('*')
     .single();
-  if (error) throw new AlloProDataError(error);
+  if (error) throw new AlloLm3lmDataError(error);
   return data;
 }
 
 export async function cancelBooking(bookingId: string): Promise<void> {
   const { error } = await supabase.from('bookings').update({ status: 'cancelled' }).eq('id', bookingId);
-  if (error) throw new AlloProDataError(error);
+  if (error) throw new AlloLm3lmDataError(error);
 }
 
 export async function submitReview(params: {
@@ -348,7 +348,7 @@ export async function submitReview(params: {
     rating: Math.min(5, Math.max(1, Math.round(params.rating))),
     comment: params.comment?.trim() || null,
   });
-  if (error) throw new AlloProDataError(error);
+  if (error) throw new AlloLm3lmDataError(error);
 }
 
 /** Maps server errors (RPC exceptions, unique violations) to translation keys. */

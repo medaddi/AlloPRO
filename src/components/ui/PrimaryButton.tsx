@@ -1,5 +1,5 @@
 /**
- * AlloPro — Thumb-zone CTA button.
+ * ALLO LM3LM — Thumb-zone CTA button.
  * 54px tall, 16px radius, scale(0.98) press compression + expo-haptics feedback.
  * Every button can pair its label with an icon (visual-first for artisans).
  */

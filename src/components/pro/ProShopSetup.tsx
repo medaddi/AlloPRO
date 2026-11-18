@@ -1,5 +1,5 @@
 /**
- * AlloPro — First-run shop creation for a pro without a pro_profile.
+ * ALLO LM3LM — First-run shop creation for a pro without a pro_profile.
  * Name, trade (category → booking engine), neighborhood, GPS pin.
  * Creates the profile with the 90-day free trial from the schema defaults.
  */
@@ -111,7 +111,7 @@ export default function ProShopSetup() {
       triggerHaptic('success');
       setProProfile(data);
     } catch (err) {
-      if (__DEV__) console.warn('[AlloPro] create shop', err);
+      if (__DEV__) console.warn('[ALLO LM3LM] create shop', err);
       setErrors({ form: t('errors.generic') });
       triggerHaptic('warning');
     } finally {

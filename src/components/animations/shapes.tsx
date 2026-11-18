@@ -1,5 +1,5 @@
 /**
- * AlloPro — shared vector shapes for animations (gear, location pin, star).
+ * ALLO LM3LM — shared vector shapes for animations (gear, location pin, star).
  * Pure geometry + static SVG components; motion lives in the animation components.
  */
 import Svg, { Circle, Path } from 'react-native-svg';
@@ -80,7 +80,7 @@ type PinProps = {
   innerColor?: string;
 };
 
-/** Deep-blue location pin with an orange checkmark (AlloPro brand mark for "found / confirmed"). */
+/** Deep-blue location pin with an orange checkmark (ALLO LM3LM brand mark for "found / confirmed"). */
 export function LocationPinCheck({
   width = 64,
   pinColor = colors.primary.DEFAULT,

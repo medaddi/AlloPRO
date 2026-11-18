@@ -1,5 +1,5 @@
 /**
- * AlloPro web app — Client Mode (split-view discovery + map, 3 booking engines,
+ * ALLO LM3LM web app — Client Mode (split-view discovery + map, 3 booking engines,
  * live tracker) and Pro Mode (guichet, caisse & kridi, catalogue), bilingual
  * FR / AR with automatic LTR / RTL flipping.
  */
@@ -41,7 +41,7 @@ export default function App() {
         <div className="flex flex-col items-center gap-4">
           <SplashLogoAnimation size={150} />
           <p className="ltr text-3xl font-bold">
-            Allo<span className="text-accent">Pro</span>
+            ALLO <span className="text-accent">LM3LM</span>
           </p>
           <p className="text-sm text-muted">{t('app.tagline')}</p>
         </div>

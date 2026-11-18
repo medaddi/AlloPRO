@@ -1,5 +1,5 @@
 /**
- * AlloPro — Add an unpaid client debt (Carnet de Kridi).
+ * ALLO LM3LM — Add an unpaid client debt (Carnet de Kridi).
  * Name, optional +212 phone (for WhatsApp reminders), amount in DH, note.
  */
 import { useEffect, useState } from 'react';

@@ -1,5 +1,5 @@
 /**
- * AlloPro — Root layout.
+ * ALLO LM3LM — Root layout.
  * Boot sequence: native splash → fonts → animated SplashLogoAnimation while
  * i18n (+RTL), persisted store and Supabase session load → route guard.
  */
@@ -57,7 +57,7 @@ export default function RootLayout() {
     initI18n()
       .then((lang) => useAppStore.getState().syncLanguage(lang))
       .catch((err) => {
-        if (__DEV__) console.warn('[AlloPro] i18n init failed', err);
+        if (__DEV__) console.warn('[ALLO LM3LM] i18n init failed', err);
       })
       .finally(() => setI18nReady(true));
   }, []);
@@ -76,7 +76,7 @@ export default function RootLayout() {
             .getState()
             .loadProfile()
             .catch((err) => {
-              if (__DEV__) console.warn('[AlloPro] loadProfile failed', err);
+              if (__DEV__) console.warn('[ALLO LM3LM] loadProfile failed', err);
             });
         }
       })

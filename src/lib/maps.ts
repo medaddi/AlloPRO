@@ -1,5 +1,5 @@
 /**
- * AlloPro — Turn-by-turn directions (Google Maps / Waze), Android & iOS.
+ * ALLO LM3LM — Turn-by-turn directions (Google Maps / Waze), Android & iOS.
  */
 import { Linking, Platform } from 'react-native';
 

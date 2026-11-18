@@ -1,5 +1,5 @@
 /**
- * AlloPro — FR | ع language pill.
+ * ALLO LM3LM — FR | ع language pill.
  * Always "FR" on the left and "ع" on the right, whatever the layout direction.
  * Switching flips RTL/LTR, which reloads the app once.
  */

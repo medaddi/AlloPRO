@@ -1,5 +1,5 @@
 -- =============================================================================
--- AlloPro — Categories & target jobs (métiers) seed
+-- ALLO LM3LM — Categories & target jobs (métiers) seed
 -- Idempotent: safe to re-run. Run after the base schema (spec §3–4).
 -- =============================================================================
 

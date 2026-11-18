@@ -1,5 +1,5 @@
 /**
- * AlloPro — Status pill (Ouvert / Fermé, queue count, booking status).
+ * ALLO LM3LM — Status pill (Ouvert / Fermé, queue count, booking status).
  * Dot + label; optional pulsing dot for live states.
  */
 import { useEffect } from 'react';

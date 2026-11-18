@@ -1,5 +1,5 @@
 /**
- * AlloPro — Bottom sheet modal for forms (walk-in, service, Kridi…).
+ * ALLO LM3LM — Bottom sheet modal for forms (walk-in, service, Kridi…).
  * Slides up, dims the screen, keeps the footer CTA above the keyboard.
  */
 import { useEffect, useState, type ReactNode } from 'react';

@@ -1,5 +1,5 @@
 /**
- * AlloPro — Client profile: identity, city, language, switch to Pro Mode,
+ * ALLO LM3LM — Client profile: identity, city, language, switch to Pro Mode,
  * help, logout.
  */
 import { useState } from 'react';
@@ -129,7 +129,7 @@ export default function ProfileScreen() {
           style={{ marginTop: 16 }}
         />
 
-        <Text style={styles.version}>{ltr('AlloPro • v1.0.0')}</Text>
+        <Text style={styles.version}>{ltr('ALLO LM3LM • v1.0.0')}</Text>
       </ScrollView>
 
       <CityPickerSheet visible={cityOpen} onClose={() => setCityOpen(false)} />

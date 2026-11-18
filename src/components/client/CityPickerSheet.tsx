@@ -1,5 +1,5 @@
 /**
- * AlloPro — City → neighborhood picker ("Casablanca - Maârif ▾").
+ * ALLO LM3LM — City → neighborhood picker ("Casablanca - Maârif ▾").
  */
 import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';

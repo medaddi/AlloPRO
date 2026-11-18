@@ -1,5 +1,5 @@
 /**
- * AlloPro — Global app state (Zustand + AsyncStorage persistence).
+ * ALLO LM3LM — Global app state (Zustand + AsyncStorage persistence).
  * Holds: signed-in user, pro profile, active mode (client/pro), language mirror,
  * selected city/neighborhood and last known GPS position.
  */
@@ -149,7 +149,7 @@ export const useAppStore = create<AppState>()(
             .update({ language })
             .eq('id', user.id)
             .then(({ error }) => {
-              if (error && __DEV__) console.warn('[AlloPro] language sync failed:', error.message);
+              if (error && __DEV__) console.warn('[ALLO LM3LM] language sync failed:', error.message);
             });
         }
         // Last: may reload the JS bundle to flip RTL/LTR.
@@ -187,7 +187,7 @@ export const useAppStore = create<AppState>()(
       },
     }),
     {
-      name: 'allopro.store',
+      name: 'allolm3lm.store',
       version: 1,
       storage: createJSONStorage(() => AsyncStorage),
       // Session data always comes fresh from Supabase; only preferences are persisted.

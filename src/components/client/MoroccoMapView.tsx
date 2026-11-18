@@ -1,5 +1,5 @@
 /**
- * AlloPro — Styled map of Morocco with live pro pins.
+ * ALLO LM3LM — Styled map of Morocco with live pro pins.
  * Pin = category icon + status dot (green open / grey closed) + price or wait.
  * Uses the custom style that hides country borders (undivided Morocco).
  */

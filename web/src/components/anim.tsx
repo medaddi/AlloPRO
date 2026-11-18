@@ -1,5 +1,5 @@
 /**
- * AlloPro — the 4 signature animations (SVG + CSS, GPU transforms only).
+ * ALLO LM3LM — the 4 signature animations (SVG + CSS, GPU transforms only).
  */
 import { useEffect, useState, type CSSProperties } from 'react';
 import { Clock, Settings, Wrench } from 'lucide-react';
@@ -33,7 +33,7 @@ export function GearIcon({ className = '', spin = false, color = '#F08A4B' }: { 
 /** 1 — Splash logo: 'A' springs 0.5→1, gear rotates 4s, checkmark draws in 600ms. */
 export function SplashLogoAnimation({ size = 160, replayKey = 0 }: { size?: number; replayKey?: number }) {
   return (
-    <svg key={replayKey} width={size} height={size} viewBox="0 0 200 200" role="img" aria-label="AlloPro">
+    <svg key={replayKey} width={size} height={size} viewBox="0 0 200 200" role="img" aria-label="ALLO LM3LM">
       <path d={LOGO_GEAR} fill="#F08A4B" fillRule="evenodd" className="animate-gear-slow" />
       <g className="animate-logo-spring">
         <path d={A_PATH} fill="#1D4355" fillRule="evenodd" stroke="#1D4355" strokeWidth={6} strokeLinejoin="round" />

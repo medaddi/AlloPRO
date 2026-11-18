@@ -1,5 +1,5 @@
 /**
- * AlloPro web — realistic Moroccan seed data.
+ * ALLO LM3LM web — realistic Moroccan seed data.
  * Shapes mirror the Supabase schema (pro_profiles, services, bookings, pro_kridi)
  * so the same store logic can later read from Supabase.
  */

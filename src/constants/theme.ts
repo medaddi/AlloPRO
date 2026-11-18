@@ -1,5 +1,5 @@
 /**
- * AlloPro — Design System Tokens
+ * ALLO LM3LM — Design System Tokens
  * Single source of truth for every JS-side style (Reanimated, SVG, StyleSheet).
  * tailwind.config.js mirrors these values for NativeWind classNames.
  */

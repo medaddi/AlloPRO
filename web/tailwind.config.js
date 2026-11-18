@@ -1,4 +1,4 @@
-/** AlloPro web — tokens mirror the Figma variables (AlloPro Color / Dimensions). */
+/** ALLO LM3LM web — tokens mirror the Figma variables (ALLO LM3LM Color / Dimensions). */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],

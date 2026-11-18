@@ -1,5 +1,5 @@
 /**
- * AlloPro — Mini-Caisse & Carnet de Kridi.
+ * ALLO LM3LM — Mini-Caisse & Carnet de Kridi.
  * Today / month revenue from completed bookings, unpaid client debts with
  * WhatsApp reminders, and recently paid entries.
  */

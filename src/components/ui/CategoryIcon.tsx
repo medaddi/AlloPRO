@@ -1,5 +1,5 @@
 /**
- * AlloPro — Category icon tile.
+ * ALLO LM3LM — Category icon tile.
  * Maps the `categories.icon` value stored in Supabase ('Scissors', 'Wrench', …)
  * to a lucide-react-native icon on a soft tinted square.
  */

@@ -43,7 +43,7 @@
     "tagline": "Votre tour, sans attendre"
   },
   "welcome": {
-    "title": "Bienvenue sur AlloPro",
+    "title": "Bienvenue sur ALLO LM3LM",
     "subtitle": "Coiffeur, garage, médecin ou plombier : réservez sans attendre, partout au Maroc.",
     "chooseLanguage": "Choisissez votre langue",
     "chooseRole": "Vous êtes…",
@@ -70,7 +70,7 @@
     "fullName": "Nom complet",
     "fullNamePlaceholder": "Ex. Youssef El Amrani",
     "finish": "Commencer",
-    "terms": "En continuant, vous acceptez les conditions d'utilisation d'AlloPro."
+    "terms": "En continuant, vous acceptez les conditions d'utilisation d'ALLO LM3LM."
   },
   "tabs": {
     "home": "Accueil",
@@ -222,12 +222,12 @@
     "city": "Ville",
     "switchToPro": "Passer en Mode Pro",
     "switchToClient": "Passer en Mode Client",
-    "becomePro": "Devenir Pro sur AlloPro",
+    "becomePro": "Devenir Pro sur ALLO LM3LM",
     "logout": "Se déconnecter",
     "logoutConfirm": "Voulez-vous vraiment vous déconnecter ?",
     "help": "Aide & contact",
     "version": "Version {{version}}",
-    "helpMessage": "Bonjour AlloPro, j’ai besoin d’aide avec l’application."
+    "helpMessage": "Bonjour ALLO LM3LM, j’ai besoin d’aide avec l’application."
   },
   "guichet": {
     "title": "Mon Guichet",
@@ -256,7 +256,7 @@
     "lastIssued": "Dernier ticket : {{ticket}}",
     "openFirst": "Ouvrez la boutique pour recevoir des clients.",
     "upNext": "Prochains clients",
-    "appClient": "Client AlloPro",
+    "appClient": "Client ALLO LM3LM",
     "anyService": "Sans service précis",
     "start": "Démarrer",
     "statusUpdated": "Statut mis à jour"
@@ -327,8 +327,8 @@
     "daysLeft_one": "{{count}} jour restant",
     "daysLeft_other": "{{count}} jours restants",
     "renewHint": "Paiement par virement CIH, Attijari, Barid Bank ou CashPlus.",
-    "contactSupport": "Contacter AlloPro",
-    "renewMessage": "Bonjour AlloPro, je souhaite renouveler l’abonnement de ma boutique « {{name}} ».",
+    "contactSupport": "Contacter ALLO LM3LM",
+    "renewMessage": "Bonjour ALLO LM3LM, je souhaite renouveler l’abonnement de ma boutique « {{name}} ».",
     "account": "Compte"
   },
   "radar": {
@@ -370,7 +370,7 @@
   },
   "proSetup": {
     "title": "Créez votre boutique",
-    "subtitle": "Quelques infos et vos clients vous trouvent sur AlloPro.",
+    "subtitle": "Quelques infos et vos clients vous trouvent sur ALLO LM3LM.",
     "category": "Votre métier",
     "neighborhood": "Quartier",
     "addressPlaceholder": "Ex. 12 Rue Ibn Battouta",

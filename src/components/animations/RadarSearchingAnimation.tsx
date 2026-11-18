@@ -1,5 +1,5 @@
 /**
- * AlloPro — Radar matching animation (SOS artisan dispatch & nearby search).
+ * ALLO LM3LM — Radar matching animation (SOS artisan dispatch & nearby search).
  * - Deep-blue pin with orange check floats on Y (−5 ↔ +5, 1500ms ease-in-out)
  * - 3 teal waves expand 0.5 → 2.5 while fading 0.8 → 0 (staggered 2000ms loop)
  * - Wrench / gear / clock chips orbit slowly around the radar perimeter

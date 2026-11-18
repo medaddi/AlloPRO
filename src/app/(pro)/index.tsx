@@ -1,5 +1,5 @@
 /**
- * AlloPro — Pro "Live Guichet".
+ * ALLO LM3LM — Pro "Live Guichet".
  * Giant OUVERT/FERMÉ switch, queue controller (Suivant + walk-in) for queue
  * trades, and today's appointment / SOS requests with 1-tap actions.
  */
